@@ -1,0 +1,56 @@
+1:duplicates zeros
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) {
+        vector<int>v;
+        for(int i=0;i<arr.size();i++){
+           
+           if(arr.size()==v.size())
+            break;
+             
+            if(arr[i]==0){
+                v.push_back(0);
+                v.push_back(0);
+            }
+        else
+        v.push_back(arr[i]);
+        }
+        
+        for(int i=0; i<arr.size();i++){
+            arr[i]=v[i];
+        }
+        
+    }
+};
+
+
+
+2--> intersection of two array
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+
+        vector<int>v;
+        for(int i=1;i<nums1.size();i++){
+           if(nums1[i]==nums1[i-1])
+           continue;
+           if(binary_search(nums2.begin(),nums2.end(),nums1[i]))
+           v.push_back(nums1[i]);
+        }
+        //if(nums1.size()>1){
+        //if(nums1[0]!=nums1[1])
+        //if(binary_search(nums2.begin(),nums2.end(),nums1[0]))
+          // v.push_back(nums1[0]);
+           //}
+           //else
+           if(binary_search(nums2.begin(),nums2.end(),nums1[0]))
+           v.push_back(nums1[0]);
+
+           
+
+
+     return v;
+    }
+};
